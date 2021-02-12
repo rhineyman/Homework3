@@ -6,82 +6,81 @@
 // var specChar = ["?", ":", "(", "}", "{", ")", "@", "#", "$", "&"];
 // var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "o", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 // var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-//use selects password length
-function generatePassword () {
 
-while (!passLength) { 
-var passLength = prompt("Please select the number of characters in your password between 8-128");
-if (passLength < 8 || passLength > 128) {
-  alert("Must be longer than 8 characters, Must be less than 128 characters");
-  passLength = null;  
-}
+//user selects password length
+function generatePassword() {
 
-} 
+  while (!passLength) {
+    var passLength = prompt("Please select the number of characters in your password between 8-128");
+    if (passLength < 8 || passLength > 128) {
+      alert("Must be longer than 8 characters, Must be less than 128 characters");
+      passLength = null;
+    }
 
-console.log(passLength);
+  }
 
-//user selects what type of characters
+  console.log(passLength);
 
-
-while (  
-  !selLowercase  &&
-  !selUppercase  &&
-  !selNum  &&
-  !selSpecial 
-){
-  var selLowercase = confirm("Would you like lowercase letters?");
-  var selUppercase = confirm("Would you like uppercase letters?");
-  var selNum = confirm("Would you like numbers?");
-  var selSpecial = confirm("Would you like special characters?");
- 
-
-if (
-  selLowercase === false &&
-  selUppercase === false &&
-  selNum === false &&
-  selSpecial === false
-)
-
-  {
-  alert("Must select a character type");
-
-}
-}
+  //user selects what type of characters
 
 
-console.log(selLowercase, selUppercase, selNum, selSpecial);
-
-var userSelect = (selLowercase, selUppercase, selNum, selSpecial, passLength);
-
-var bank = [];
-
-if (selLowercase) {
-  bank = bank.concat("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "o", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"); 
-} 
-if (selUppercase) {
-  bank = bank.concat("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"); 
-} 
-if (selNum) {
-  bank = bank.concat("1", "2", "3", "4", "5", "6", "7", "8", "9"); 
-} 
-if (selSpecial) {
-  bank = bank.concat("?", ":", "(", "}", "{", ")", "@", "#", "$", "&"); 
-} 
-
-console.log(bank);
+  while (
+    !selLowercase &&
+    !selUppercase &&
+    !selNum &&
+    !selSpecial
+  ) {
+    var selLowercase = confirm("Would you like lowercase letters?");
+    var selUppercase = confirm("Would you like uppercase letters?");
+    var selNum = confirm("Would you like numbers?");
+    var selSpecial = confirm("Would you like special characters?");
 
 
+    if (
+      selLowercase === false &&
+      selUppercase === false &&
+      selNum === false &&
+      selSpecial === false
+    ) {
+      alert("Must select a character type");
 
-//password generation from above variables
+    }
+  }
 
-var passW = "";
 
-for (i = 0; i < passLength; i++) {
-  passW = passW.concat(bank[Math.floor(Math.random() * bank.length)]);
-}
-console.log(passW);
+  console.log(selLowercase, selUppercase, selNum, selSpecial);
 
-return passW;
+  var userSelect = (selLowercase, selUppercase, selNum, selSpecial, passLength);
+
+  var bank = [];
+
+  if (selLowercase) {
+    bank = bank.concat("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "o", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+  }
+  if (selUppercase) {
+    bank = bank.concat("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+  }
+  if (selNum) {
+    bank = bank.concat("1", "2", "3", "4", "5", "6", "7", "8", "9");
+  }
+  if (selSpecial) {
+    bank = bank.concat("?", ":", "(", "}", "{", ")", "@", "#", "$", "&");
+  }
+
+  console.log(bank);
+
+
+
+  //password generation from above variables
+
+  var passW = "";
+
+  for (i = 0; i < passLength; i++) {
+    passW = passW.concat(bank[Math.floor(Math.random() * bank.length)]);
+  }
+  console.log(passW);
+
+  return passW;
 }
 
 // Write password to the #password input
