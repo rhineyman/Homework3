@@ -13,7 +13,12 @@ function generatePassword() {
   while (!passLength) {
     var passLength = prompt("Please select the number of characters in your password between 8-128");
     if (passLength < 8 || passLength > 128) {
-      alert("Must be longer than 8 characters, Must be less than 128 characters");
+      alert("Must be longer than 8 characters, Must be less than 128 characters");      
+      passLength = null;
+    }
+    if (isNaN(passLength)) {
+      console.log(typeof passLength);
+      alert("Must select a number");
       passLength = null;
     }
 
