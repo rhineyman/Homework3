@@ -1,14 +1,14 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
-
 
 // function passVariable () {
 
-var numbers = ("1", "2", "3", "4", "5", "6", "7", "8", "9");
-var specChar = ("?", ":", "(", "}", "{", ")", "@", "#", "$", "&");
-var lowercase = ("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "o", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-var uppercase = ("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+// var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+// var specChar = ["?", ":", "(", "}", "{", ")", "@", "#", "$", "&"];
+// var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "o", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 //use selects password length
+function generatePassword () {
+
 while (!passLength) { 
 var passLength = prompt("Please select the number of characters in your password between 8-128");
 if (passLength < 8 || passLength > 128) {
@@ -19,6 +19,7 @@ if (passLength < 8 || passLength > 128) {
 } 
 
 console.log(passLength);
+
 //user selects what type of characters
 
 
@@ -46,21 +47,46 @@ if (
 
 }
 }
+
+
 console.log(selLowercase, selUppercase, selNum, selSpecial);
 
 var userSelect = (selLowercase, selUppercase, selNum, selSpecial, passLength);
 
-console.log(userSelect);
-// }
+var bank = [];
+
+if (selLowercase) {
+  bank = bank.concat("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "o", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"); 
+} 
+if (selUppercase) {
+  bank = bank.concat("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"); 
+} 
+if (selNum) {
+  bank = bank.concat("1", "2", "3", "4", "5", "6", "7", "8", "9"); 
+} 
+if (selSpecial) {
+  bank = bank.concat("?", ":", "(", "}", "{", ")", "@", "#", "$", "&"); 
+} 
+
+console.log(bank);
+
 
 
 //password generation from above variables
 
-var index = Math.floor(Math.random(selLowercase) * passLength.length);
-console.log(index)
-    
+var passW = "";
+
+for (i = 0; i < passLength; i++) {
+  passW = passW.concat(bank[Math.floor(Math.random() * bank.length)]);
+}
+console.log(passW);
+
+return passW;
+}
 
 // Write password to the #password input
+var generateBtn = document.querySelector("#generate");
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
