@@ -1,6 +1,6 @@
 // Assignment Code
 
-//user selects password length
+//user selects password length creates loop until parameters are met
 function generatePassword() {
 
   while (!passLength) {
@@ -19,7 +19,7 @@ function generatePassword() {
 
   console.log(passLength);
 
-  //user selects what type of characters
+  //user selects what type of characters creates loop until parameters are met
 
 
   while (
@@ -69,7 +69,7 @@ function generatePassword() {
 
 
 
-  //password generation from above variables
+  //password generation from above variable bank
 
   var passW = "";
 
