@@ -1,12 +1,5 @@
 // Assignment Code
 
-// function passVariable () {
-
-// var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-// var specChar = ["?", ":", "(", "}", "{", ")", "@", "#", "$", "&"];
-// var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "o", "m", "n", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "O", "M", "N", "P", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
 //user selects password length
 function generatePassword() {
 
@@ -55,7 +48,7 @@ function generatePassword() {
 
   console.log(selLowercase, selUppercase, selNum, selSpecial);
 
-  var userSelect = (selLowercase, selUppercase, selNum, selSpecial, passLength);
+  
 
   var bank = [];
 
